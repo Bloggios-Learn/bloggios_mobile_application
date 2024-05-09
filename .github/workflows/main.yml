@@ -1,0 +1,39 @@
+name: Bloggios Application
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '2.8.0' # Change this to the desired Flutter version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build Android APK
+        run: flutter build apk
+
+      - name: Build iOS IPA
+        run: flutter build ios --release --no-codesign
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-artifacts
+          path: |
+            build/app/outputs/flutter-apk/*.apk
+            build/ios/iphoneos/*.ipa
