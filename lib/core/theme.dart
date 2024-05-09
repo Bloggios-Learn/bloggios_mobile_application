@@ -1,4 +1,4 @@
-import 'package:bloggios_mobile_application/core/app_palette.dart';
+import 'package:Bloggios/core/app_palette.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {

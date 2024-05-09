@@ -1,16 +1,20 @@
+import 'package:Bloggios/containers/splash_screen/widgets/AnimatedScrollableImages.dart';
+import 'package:Bloggios/containers/splash_screen/widgets/ImageScrollerGradient.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class SpalshScreen extends StatelessWidget {
+class SplashScreen extends StatelessWidget {
   static const String RouteName = "/splash";
-  const SpalshScreen({super.key});
+  const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Stack(
         children: [
-          SplashBackground()
+          SplashBackground(),
+          AnimatedScrollableImages(),
+          ImageScrollerGradient()
         ],
       ),
     );
